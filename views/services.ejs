@@ -1,0 +1,48 @@
+<html>
+  <%- include("partials/meta"); -%>
+  <body>
+    <%- include("partials/header"); -%>
+    <!-- CONTENT START -->
+      <div class="pagecontent">
+        <h1 class="single-service-heading">Hizmetlerimiz</h1>
+        <p class="service-desc-heading">Müşterilerimize sunduğumuz tüm hizmetlerimiz</p>
+  
+        <h1 class="single-service-heading">Kategoriler</h1>
+        <br>
+        <% allCategories.forEach((category , index)=> { %>
+        <div class="categories">
+          <div class="category">
+            <div class="category-content">
+              <div class="flex-wrap">
+                <div class="flex-1">
+                  <i class="fa-solid fa-caret-down fa-2x expand-button clickable <%= index.toString() %>"></i>
+                <h3 class="category-heading clickable <%= index.toString() %>"><%= category %></h3>  
+                </div>       
+                <div class="flex-2 clickable <%= index.toString() %>">
+                </div>
+              </div>      
+              <div class="category-services <%="cat-"+index.toString()%> undisplayed">
+                <% services.forEach(service => {%> <% if (service.category === category) {%>
+                <div class="services">
+                  <div class="service-card">
+                    <i class="<%=service.miniIco%>"></i>
+                    <p><%=service.category%></p>
+                    <h4><%=service.title%></h4>
+                   <p><%-service.desc.slice(0,60) + ".."%></p> 
+                   <div class="service"><a class="link" href="/hizmetler/<%=service.url%>">Daha Fazla Bilgi <i class="fa-solid fa-caret-right"></i></a></div>
+                  </div>
+                </div>
+                <% } %> <% }) %>
+              </div>
+            </div>     
+          </div>
+        </div>
+        <% }) %>
+      </div> 
+    <!-- CONTENT END -->
+    <div class="footer-fix ff" id="servicefooter">
+      <%- include("partials/footer"); -%>
+    </div>
+    <%- include("service/scripts-end"); -%>
+  </body>
+</html>

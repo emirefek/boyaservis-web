@@ -1,0 +1,48 @@
+<html>
+  <%- include("partials/meta"); -%>
+  <body>
+    <%- include("partials/header"); -%>
+    <!-- CONTENT START -->
+    <div class="pagecontent">
+      <h1 class="single-service-heading"><%=work.title%></h1>
+      <hr />
+      <div class="work-info">
+        <div class="wdiv1 w-grid">
+          <h3>İş Açıklaması:</h3>
+          <div class="w-inner-desc">
+            <p><%-work.desc%></p>
+          </div>
+        </div>
+        <div class="wdiv2 w-grid">
+          <h3>Müşteri:</h3>
+          <div class="w-inner">
+            <img src="/uploaded/images/<%=workClient.logo%>" alt="<%=_.toLower(workClient.name)%> " />
+            <p><%=workClient.name%></p>
+          </div>
+        </div>
+
+        <div class="wdiv3 w-grid">
+          <h3>Hizmet:</h3>
+          <div class="w-inner">
+            <i class="<%=workService.miniIco%>"></i>
+            <p><%=workService.title%></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-photos">
+        <div class="work-bigimg"><img class="bigimg" data-fancybox="w-gallery" src="/uploaded/images/<%=work.imgs[0]%>" alt="<%=_.toLower(work.title)+"foto0"%> " /></div>
+
+        <% if (work.imgs.length >= 2) { %>
+        <div class="work-imgs">
+          <% work.imgs.slice(1).forEach((img,index)=>{ %>
+          <img data-fancybox="w-gallery" src="/uploaded/images/<%=img%> " alt="" />
+          <% }) %>
+        </div>
+        <% } %>
+      </div>
+    </div>
+    <!-- CONTENT END -->
+    <%- include("partials/footer"); -%> <%- include("service/scripts-end"); -%>
+  </body>
+</html>

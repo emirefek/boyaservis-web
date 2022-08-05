@@ -1,0 +1,87 @@
+<html>
+  <%- include("partials/meta"); -%>
+  <body>
+    <%- include("partials/header"); -%>
+    <!-- CONTENT START -->
+    <h1>Servis yönetim paneli</h1>
+    <hr />
+
+    <div>
+      <i class="<%=service.miniIco%>"></i>
+      <p><%=service.title%></p>
+      <p><%=service.desc%></p>
+      <p><%=service.category%> </p>
+      <a href="/admin/service/<%=service._id%>"><%=service._id%></a>
+    </div>
+
+    <form method="POST" action="/admin/service/<%=(formJob === "edit") ? (service._id+"?job=edit") : ""%>"
+    >
+      <label for="title">Başlık</label>
+      <input
+        id="title"
+        type="text"
+        name="title"
+        value="<%=service.title%>"
+        placeholder="Title"
+      />
+      <label for="desc">Desc</label>
+      <textarea class="ckeditor" id="desc" name="desc" rows="4" cols="50">
+<%=service.desc%></textarea
+      >
+      <label for="category">Kategori</label>
+      <select name="category" id="category">
+        <option value="chooseCategory">--Category seçiniz--</option>
+        <option value="newCategory">++ Yeni category oluştur ++</option>
+
+        <% allCategories.forEach((cate,index)=>{ %>
+          <option value="<%=cate%>"
+            <% if (service.category && cate){ %> 
+            <%=(service.category === cate) ? "selected" : " " %>
+            <% } %> 
+          ><%=cate%></option>
+          <% }); %> 
+
+      </select> 
+      <label id="categoryNewLabel" for="categoryNew">Yeni Kategori</label>
+      <input id="categoryNew" type="text" name="categoryNew">
+      <label for="miniIco">miniIco (FontAwesome)</label>
+      <input type="text" name="miniIco" value="<%=service.miniIco%>" />
+      <button type="submit"><%=formJob%></button>
+    </form>
+    <% if (formJob === "edit"){ %> 
+    <form method="POST" action="/admin/service/<%=service._id%>?job=delete">
+      <button type="submit">Delete</button>
+    </form>
+    <% } %> 
+
+    <div ></div>
+
+    <!-- CONTENT END -->
+    <%- include("../service/scripts-end"); -%>
+    <%- include("../service/ckeditor"); -%>
+    
+  <script>
+
+    const catListener = () => {
+      const selectedCat = $(`#category option:selected`).val()
+
+      if (selectedCat.toString() !== "newCategory") {
+       $('#categoryNew').css('display', 'none');
+       $('#categoryNewLabel').css('display', 'none');
+     } else {
+       $('#categoryNew').css('display', 'block');
+       $('#categoryNewLabel').css('display', 'block');
+     }
+    }
+    catListener()
+
+
+  $('#category').on('change', (e)=> {
+    catListener()
+  })
+    
+
+  </script>
+
+  </body>
+</html>

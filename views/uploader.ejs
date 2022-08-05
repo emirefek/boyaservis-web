@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>EJS Engine</title>
+  </head>
+  <body>
+    <%- include("partials/header"); -%>
+    <!-- CONTENT START -->
+    <div class="pagecontent">
+      <h1>Merhaba, size nasıl yardımcı olabiliriz?</h1>
+      <hr />
+      <p>Image Upload</p>
+      <form method="post" action="post" enctype="multipart/form-data">
+        <input type="file" name="image" /><br /><br />
+        <button type="submit" name="upload">Upload</button>
+      </form>
+    </div>
+    <!-- CONTENT END -->
+    <%- include("service/scripts-end"); -%>
+  </body>
+</html>

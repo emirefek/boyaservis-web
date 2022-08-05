@@ -1,0 +1,41 @@
+form {
+  display: block;
+}
+
+form > label {
+  display: block;
+  margin: 0.5em 0 0 0;
+}
+
+form > input {
+  display: block;
+  margin: 0 0 0.5em 0;
+  font-size: 1.3em;
+  width: 100%;
+  padding: 12px 20px;
+}
+
+form > button {
+  display: block;
+  padding: 0.5em 1em;
+  margin: 1em 0;
+  font-size: 1.3em;
+}
+
+form > textarea {
+  display: block;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  font-size: 1em;
+}
+
+form > select {
+  display: block;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  font-size: 1em;
+}
+
+.ck-editor__editable_inline {
+  min-height: 300px;
+}

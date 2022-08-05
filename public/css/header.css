@@ -1,0 +1,139 @@
+header {
+  background-color: #ffffff;
+  box-shadow: 3px 0px 12px black;
+  z-index: 10;
+  position: sticky;
+  top: 0;
+}
+
+.current {
+  color: #F5A02C !important;
+}
+
+.header-container {
+  padding-block: 1.5rem;
+  padding-inline: 5%;
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  display: block;
+  width: 100%;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+  font-size: 1.6rem;
+  transition: font-size 0.33s ease-in-out;
+}
+
+.menu a:hover {
+  font-size: 1.85rem;
+  box-shadow: 0px 3px hsla(0, 95%, 46%, 0.8);
+}
+
+.menu-icon {
+  margin-left: auto;
+  font-size: 2.5rem !important;
+  cursor: pointer;
+  z-index: 12;
+  transition: color 0.5s;
+}
+
+.menu-icon:hover {
+  animation: pulse 0.75s linear;
+}
+
+.menu ul {
+  list-style: none;
+  text-align: right;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.menu ul li {
+  display: inline;
+}
+
+.menupop a {
+  color: #000;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: font-size 0.33s ease-in-out;
+}
+
+.menupop a:hover {
+  font-size: 1.85rem;
+  box-shadow: 0px 3px hsla(0, 95%, 46%, 0.8);
+}
+
+@media only screen and (max-width: 600px) {
+  .menu {
+    display: none;
+  }
+
+  .menu-icon {
+    display: inline-block;
+  }
+
+  .menu ul {
+    flex-direction: column;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .menu {
+    display: none;
+  }
+
+  .menu-icon {
+    display: inline-block;
+  }
+
+  .menu ul {
+    flex-direction: column;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .menu {
+    display: flex;
+  }
+  .menu-icon {
+    display: none !important;
+  }
+
+  .menu ul {
+    flex-direction: row;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1280px) {
+  /* */
+}
+
+.menupop {
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  animation: fadeInRight 0.2s linear;
+  background-color: var(--color-headerbg);
+}

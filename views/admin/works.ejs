@@ -1,0 +1,21 @@
+<html>
+  <%- include("partials/meta"); -%>
+  <body>
+    <%- include("partials/header"); -%>
+    <!-- CONTENT START -->
+    <h1>İşler yönetim paneli</h1>
+    <a href="/admin/work">Add Works</a>
+    <hr />
+
+    <% works.forEach((work) => { %>
+    <div>
+      <p><%=work.title%></p>
+      <p><%=work.desc%></p>
+      <a href="/admin/work/<%=work._id%> ">Edit</a>
+    </div>
+    <% }) %>
+
+    <!-- CONTENT END -->
+    <%- include("../service/scripts-end"); -%>
+  </body>
+</html>

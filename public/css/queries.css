@@ -1,0 +1,129 @@
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 1px){
+  .work-imgs > img {
+    width: calc(50% - 1rem);
+  }
+}
+
+@media only screen and (min-width: 270px) and (max-width:332px){
+  .footer-fix {
+    bottom: -30%;
+  }
+}
+
+@media only screen and (min-width: 333px) and (max-width:380px){
+  .footer-fix {
+    bottom: -21%;
+  }
+}
+
+@media only screen and (min-width: 381px) and (max-width:420px){
+  .footer-fix {
+    bottom: -14%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+    .service-card {
+      width: 50%;
+      flex-basis: 50%;
+    }
+  
+    .workcard {
+      width: 50%;
+      flex-basis: 50%;
+    }
+  
+    .work-info {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, 1fr);
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+    }
+  
+    .wdiv1 {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+    .wdiv2 {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+    .wdiv3 {
+      grid-area: 3 / 1 / 4 / 2;
+    }
+  }
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    .service-card {
+      width: 33%;
+      flex-basis: 33%;
+    }
+  
+    .workcard {
+      width: 33%;
+      flex-basis: 33%;
+    }
+
+    .infobox {
+      max-width: 38%;
+    }
+  }
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .service-card {
+      width: 25%;
+      flex-basis: 25%;
+    }
+  
+    .workcard {
+      width: 25%;
+      flex-basis: 25%;
+    }
+  
+    .work-info {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+    }
+  
+    .wdiv1 {
+      grid-area: 1 / 2 / 3 / 3;
+    }
+    .wdiv2 {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+    .wdiv3 {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+
+    .infobox {
+      max-width: 33%;
+    }
+  }
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    .pagecontent {
+      padding-inline: calc(calc(100vw - 600px) / 4) !important;
+    }
+  
+    .header-container {
+      padding-inline: calc(calc(100vw - 600px) / 4) !important;
+    }
+  
+    .footer-container {
+      padding-inline: calc(calc(100vw - 600px) / 4) !important;
+    }
+
+    .brand {
+      padding-inline: calc(calc(100vw - 600px) / 4) !important;
+    }
+
+    .infobox {
+      max-width: 28%;
+    }
+  }
+  

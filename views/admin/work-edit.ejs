@@ -1,0 +1,68 @@
+<html>
+  <%- include("partials/meta"); -%>
+  <body>
+    <%- include("partials/header"); -%>
+    <!-- CONTENT START -->
+    <h1>Work yönetim paneli</h1>
+    <hr />
+
+    <div>
+      <p>Title: <%=work.title%></p>
+      <p>Desc: <%=work.desc%></p>
+      <p>Client ID: <%=work.client%></p>
+      <p>Service ID: <%=work.service%></p>
+      <a href="/admin/work/<%=work._id%>"><%=work._id%></a>
+    </div>
+
+    <h1><%= work.title %> </h1>
+    <form method="POST" action="/admin/work/<%=(formJob === "edit") ? (work._id+"?job=edit") : ""%>"
+      enctype="multipart/form-data" >
+      <label for="title">Başlık</label>
+      <input
+        id="title"
+        type="text"
+        name="title"
+        value="<%=work.title%>"
+        placeholder="Title"
+      />
+      <label for="desc">Desc</label>
+      <textarea class="ckeditor" id="desc" name="desc" rows="8" cols="50"><%=work.desc%></textarea>
+
+      <select name="client" id="client">
+        <option value="chooseClient">--Müşteri seçiniz--</option>
+        <option value="newClient">Yeni müşteri oluşturun</option>
+        <% clients.forEach((clientX,index)=>{ %>
+          <option value="<%=clientX._id%>"
+            <% if (work.client && clientX._id){ %> 
+            <%=(clientX._id.toString() === work.client.toString()) ? "selected" : " " %>
+            <% } %> 
+          ><%=clientX.name%></option>
+          <% }); %> 
+      </select>
+
+      <select name="service" id="service">
+        <option value="chooseService">--Servis seçiniz--</option>
+        <option value="newService">Yeni müşteri oluşturun</option>
+        
+        <% services.forEach((service,index)=>{ %>
+          <option value="<%=service._id%>"
+            <% if (work.client && service._id){ %> 
+            <%=(service._id.toString() === work.service.toString()) ? "selected" : " " %>
+            <% } %> 
+            ><%=service.title%></option>
+          <% }); %> 
+      </select>
+      <input type="file" name="img" multiple="multiple" />
+      <button type="submit"><%=formJob%></button>
+    </form>
+    <% if (formJob === "edit"){ %> 
+    <form method="POST" action="/admin/work/<%=work._id%>?job=delete">
+      <button type="submit">Delete</button>
+    </form>
+    <% } %> 
+
+    <!-- CONTENT END -->
+    <%- include("../service/scripts-end"); -%>
+    <%- include("../service/ckeditor"); -%>
+  </body>
+</html>

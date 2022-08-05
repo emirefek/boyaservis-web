@@ -1,0 +1,11 @@
+<section class="section-clients">
+  <h3 class="heading">Referanslar</h3>
+  <p class="sub-heading">Bize güvenen müşterilerimiz</p>
+  <div class="logo-slider owl-carousel">
+    <% clients.forEach(clientX => {%>
+    <div class="logo-item">
+      <img src="/uploaded/images/<%=clientX.logo%>" alt="<%=clientX.name%>" />
+    </div>
+    <% }); %>
+  </div>
+</section>

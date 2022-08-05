@@ -1,0 +1,97 @@
+<html>
+  <%- include("partials/meta"); -%>
+  <body>
+    <%- include("partials/header"); -%>
+    <!-- CONTENT START -->
+    <div class="pagecontent">
+      <h1 class="single-service-heading" style="padding-bottom: 2.5rem">Hakkımızda</h1>
+      <div class="contact-grid">
+        <div class="cdiv1 w-grid">
+          <table>
+            <tbody>
+              <tr>
+                <td><i class="fa-solid fa-location-pin"></i></td>
+                <td>
+                  Karaman Mh. Kerem Cd. Salihoğlu Sitesi No:17 Nilüfer,Bursa
+                  <a href="https://maps.app.goo.gl/qUDKu633diD5wTfc7">Google Maps</a>
+                </td>
+              </tr>
+              <tr>
+                <td><i class="fa-solid fa-mobile-screen"></i></td>
+                <td>(0 532) 602 25 90</td>
+              </tr>
+              <tr>
+                <td><i class="fa-solid fa-phone"></i></td>
+                <td>(0 224) 249 56 95</td>
+              </tr>
+              <tr>
+                <td><i class="fa-solid fa-fax"></i></td>
+                <td>(0 224) 249 56 95</td>
+              </tr>
+              <tr>
+                <td><i class="fa-solid fa-envelope"></i></td>
+                <td>hikmet@boyaservis.com</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="cdiv2 w-grid">
+          <h4>İletişim Formu</h4>
+          <form action="/iletisim" method="POST" id="contact-form">
+            <input name="name" id="name" type="text" placeholder="Adınız" />
+
+            <input type="email" name="email" id="email" placeholder="Email" />
+
+            <input type="tel" name="tel" pattern="[5]{1}[0-9]{2}[0-9]{3}[0-9]{4}" placeholder="(5xx) xxx xx xx" />
+
+            <textarea name="message" id="message" rows="4" placeholder="Mesajınız"></textarea>
+            <div class="submit-area">
+              <button id="submit" type="submit">Gönder</button>
+              <div id="post-response"></div>
+            </div>
+          </form>
+        </div>
+        <div class="cdiv3 w-grid">
+          <iframe style="border: 0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCIP-q_3RTBBLWeqbCqEhjWEhWWviEqiK4&q=Hikmet%20Küçük%20End.%20İnş."> </iframe>
+        </div>
+      </div>
+    </div>
+    <!-- CONTENT END -->
+    <div class="footer-fix ff"><%- include("partials/footer"); -%></div>
+    <%- include("service/scripts-end"); -%>
+    <script src="https://malsup.github.io/jquery.form.js"></script>
+    <script>
+      $("#contact-form").ready(() => {
+        $("#contact-form").ajaxForm((e) => {
+          const success = () => {
+            $("#post-response").append("<p class='success'>Mesajınız başarıyla gönderildi</p>");
+          };
+          const error = () => {
+            $("#post-response").append("<p class='error'>Mesajınız gönderilemedi.</p>");
+          };
+
+          console.log(e);
+          if (e) {
+            if (e.job == "success") {
+              success();
+            } else {
+              error();
+            }
+          } else {
+            error();
+          }
+        });
+      });
+
+      $("#submit").on("click", () => {
+        $("#submit").attr("disabled", true);
+        $("#post-response").append("<p>Mesajınızı gönderiliyor. Lütfen bekleyiniz.</p>");
+      });
+
+      //   $("#contact-form").on("submit", function (event) {
+      //     event.preventDefault();
+      //     console.log($(this).serialize());
+      //   });
+    </script>
+  </body>
+</html>

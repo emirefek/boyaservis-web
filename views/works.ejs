@@ -1,0 +1,29 @@
+<html>
+  <%- include("partials/meta"); -%>
+  <body>
+    <%- include("partials/header"); -%>
+    <!-- CONTENT START -->
+    <div class="pagecontent">
+      <h1 class="single-service-heading">İşlerimiz</h1>
+      <div class="works">
+        <% works.forEach((work,index)=>{ %>
+
+        <div class="workcard">
+          <div class="workimg-cont">
+            <img src="/uploaded/images/<%=work.imgs[0]%> " alt="<%=_.lowerCase(work.title)%>" />
+          </div>
+          <div class="workcard-data">
+            <h3><%=work.title%></h3>
+            <p><%= work.desc %></p>
+          </div>
+          <div class="service">
+            <a class="link" href="/isler/<%=work.url%>">İş Detayı <i class="fa-solid fa-caret-right"></i></a>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+    <!-- CONTENT END -->
+    <%- include("partials/footer"); -%> <%- include("service/scripts-end"); -%>
+  </body>
+</html>

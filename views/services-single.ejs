@@ -1,0 +1,38 @@
+<html>
+  <%- include("partials/meta"); -%>
+  <body>
+    <%- include("partials/header"); -%>
+    <!-- CONTENT START -->
+    <div class="pagecontent">
+      <h1 class="single-service-heading"><%=service.title%></h1>
+      <div class="service-info">
+        <h3 class="service-desc-heading">Hizmet Açıklaması:</h3>
+        <%-service.desc%>
+      </div>
+      <hr />
+      <div class="section-works">
+        <h3 class="heading">İşlerimiz</h3>
+        <p class="sub-heading">Bu hizmeti uyguladığımız işlerimiz</p>
+        <div class="works">
+          <% releatedWorks.forEach((work,index)=>{ %>
+          <div class="workcard">
+            <div class="workimg-cont">
+              <img src="/uploaded/images/<%=work.imgs[0]%> " alt="<%=_.lowerCase(work.title)%>" />
+            </div>
+            <div class="workcard-data">
+              <h3><%=work.title%></h3>
+              <p><%= work.desc.slice(0,50) + "..."%></p>
+            </div>
+            <div class="service">
+              <a class="link" href="/isler/<%=work.url%>">İş Detayı <i class="fa-solid fa-caret-right"></i></a>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+    <!-- CONTENT END -->
+    <div class="footer-fix ff" id="servicefooter"><%- include("partials/footer"); -%></div>
+    <%- include("service/scripts-end"); -%>
+  </body>
+</html>

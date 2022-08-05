@@ -1,0 +1,40 @@
+<html>
+  <%- include("partials/meta"); -%>
+  <body>
+    <%- include("partials/header"); -%>
+    <!-- CONTENT START -->
+    <h1>Client yönetim paneli</h1>
+    <hr />
+    <%=clientX.name + " | | | " + clientX.logo%>
+    <div>
+      <i class="<%=clientX.miniIco%>"></i>
+      <p><%=clientX.title%></p>
+      <p><%=clientX.desc%></p>
+      <a href="/admin/client/<%=clientX._id%>"><%=clientX._id%></a>
+    </div>
+
+    <form method="POST" action="/admin/client/<%=(formJob === "edit") ? (clientX._id+"?job=edit") : ""%>" enctype="multipart/form-data"
+    >
+      <label for="title">Firma Adı</label>
+      <input
+        id="name"
+        type="text"
+        name="name"
+        value="<%=clientX.name%>"
+        placeholder="Firma adı"
+      />
+      <label for="logo">Logo</label>
+      <input type="file" name="logo" />
+      <button type="submit"><%=formJob%></button>
+    </form>
+    <% if (formJob === "edit"){ %> 
+    <form method="POST" action="/admin/client/<%=clientX._id%>?job=delete">
+      <button type="submit">Delete</button>
+    </form>
+    <% } %> 
+    <img src="/uploaded/images/<%=clientX.logo%>"
+
+    <!-- CONTENT END -->
+    <%- include("../service/scripts-end"); -%>
+  </body>
+</html>

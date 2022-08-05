@@ -1,0 +1,20 @@
+<section class="section-works">
+  <h3 class="heading">İşlerimiz</h3>
+  <p class="sub-heading">Başarıyla tamamladığımız işlerimiz</p>
+  <div class="works">
+    <% works.forEach((work,index)=>{ %>
+    <div class="workcard">
+      <div class="workimg-cont">
+        <img src="/uploaded/images/<%=work.imgs[0]%> " alt="<%=_.lowerCase(work.title)%>" />
+      </div>
+      <div class="workcard-data">
+        <h3><%=work.title%></h3>
+        <p><%= work.desc %></p>
+      </div>
+      <div>
+        <a href="/isler/<%=work.url%>" class="link">İş Detayı <i class="fa-solid fa-caret-right"></i></a>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</section>

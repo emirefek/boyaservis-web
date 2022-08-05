@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700;800;900&display=swap');
+
+footer {
+    background-color: #F5A02C;
+    color: #fff;
+}
+
+.footer-container {
+    padding-block: 1.5rem;
+    padding-inline: 5%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    column-gap: 2rem;
+}
+
+.infobox {
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 50%;
+    align-self: stretch;
+    color: rgb(220, 220, 220);
+    font-size: .9rem;
+}
+
+.infobox a{
+    text-decoration: none;
+    color: rgb(220, 220, 220);
+}
+
+.infobox a:hover {
+    font-size: 1.05rem;
+    border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.info-title {
+    font-size: 1.25rem;
+    color: rgb(74, 74, 74);
+}
+
+.brand {
+    color: rgb(74, 74, 74);
+    font-size: 1.3rem;
+    padding-inline: 5%;
+    padding-bottom: 1.5rem;
+}
+
+footer i {
+    padding-right: .33rem;
+}
+
+.footer-fix {
+    position: absolute;
+    width: 100%;
+    bottom: 0;  
+}
+
+#servicefooter {
+    margin-top: 2rem;
+}

@@ -1,0 +1,15 @@
+<section class="section-services">
+  <h3 class="heading">Hizmetlerimiz</h3>
+  <p class="sub-heading">Size en iyi yapısal çözümleri sunuyoruz</p>
+  <div class="service-cards">
+    <% services.forEach((service,index) => {%>
+    <div class="service-card">
+      <i class="<%=service.miniIco%>"></i>
+      <h4><%=service.title%></h4>
+      <div class="service">
+        <a href="/hizmetler/<%=service.url%>" class="link">Daha Fazla Bilgi <i class="fa-solid fa-caret-right"></i></a>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</section>

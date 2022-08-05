@@ -1,0 +1,22 @@
+<html>
+  <%- include("partials/meta"); -%>
+  <body>
+    <%- include("partials/header"); -%>
+    <!-- CONTENT START -->
+    <h1>Servis yönetim paneli</h1>
+    <a href="/admin/service">Add Service</a>
+    <hr />
+
+    <% services.forEach((service) => { %>
+    <div>
+      <i class="<%=service.miniIco%>"></i>
+      <p><%=service.title%></p>
+      <p><%=service.desc%></p>
+      <a href="/admin/service/<%=service._id%> ">Edit</a>
+    </div>
+    <% }) %>
+
+    <!-- CONTENT END -->
+    <%- include("../service/scripts-end"); -%>
+  </body>
+</html>

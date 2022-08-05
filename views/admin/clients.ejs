@@ -1,0 +1,22 @@
+<html>
+  <%- include("partials/meta"); -%>
+  <body>
+    <%- include("partials/header"); -%>
+    <!-- CONTENT START -->
+    <h1>Clients yönetim paneli</h1>
+    <a href="/admin/client">Add Client</a>
+    <hr />
+
+    <% clients.forEach((clientX) => { %>
+    <div>
+      <p><%=clientX.name%></p>
+      <p><%=clientX.logo%></p>
+      <img src="<%="/uploaded/images/"+clientX.logo%>" />
+      <a href="/admin/client/<%=clientX._id%>">Edit</a>
+    </div>
+    <% }) %>
+
+    <!-- CONTENT END -->
+    <%- include("../service/scripts-end"); -%>
+  </body>
+</html>
